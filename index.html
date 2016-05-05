@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8">
+    <title>Reddit Clone</title>
+    <link href='https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/yeti/bootstrap.min.css' media='screen' rel='stylesheet'>
+    <link rel='stylesheet' href='style.css'>
+  </head>
+  <body ng-controller='myCtrl'>
+
+    <div class='navbar navbar-fixed-top'>Reddit Clone navbar</div>
+
+    <div class='row'>
+      <div class='col-md-8 col-md-offset-1 postSummary'>
+        <div class='col-md-2'>picture here</div>
+        <div class='col-md-8'>
+          <p>Outside Aspen | ^ v 10</p>
+          <p style='text-align: right'>By Ted Smith</p>
+          <p>Text of post goes here. This div will auto-generate using ng-repeat until all posts are made to the page. (Or, limit < 10 posts per page).</p>
+        </div>
+      </div>
+    </div>
+
+    <script type='text/javascript' src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
+    <script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js'></script>
+    <script type='text/javascript' src='script.js'></script>
+  </body>
+</html>
