@@ -6,6 +6,10 @@ function redditCtrl($scope, redditService) {
   $scope.posts = redditService.getPosts();
 
   $scope.addPost = function(newPost) {
+    var date = new Date();
+    var formatDate = moment(date).startOf().fromNow();
+    newPost.posted = formatDate.charAt(0).toUpperCase() + formatDate.slice(1);
+    newPost.comments = 0;
     redditService.addPost(newPost);
     $scope.newPost = '';
   }
@@ -27,7 +31,7 @@ function redditService() {
       title: 'Outside Aspen',
       author: 'ben111',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate',
-      posted: 'date',
+      posted: moment([2016, 3, 18]).fromNow(),
       comments: 0,
       votes: 0
     },
@@ -36,7 +40,7 @@ function redditService() {
       title: 'Nothing Good',
       author: 'ben121',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate',
-      posted: 'date',
+      posted: moment([2016, 4, 3]).fromNow(),
       comments: 0,
       votes: 0
     },
@@ -45,7 +49,7 @@ function redditService() {
       title: 'Rainbows',
       author: 'ben131',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate',
-      posted: 'date',
+      posted: moment([2016, 4, 1]).fromNow(),
       comments: 0,
       votes: 0
     }
@@ -65,7 +69,3 @@ function redditService() {
     }
   }
 }
-
-// app.service('submitNow', function() {
-//   $scope.vm.newpost = true;
-// });
