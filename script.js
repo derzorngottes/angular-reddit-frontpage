@@ -4,6 +4,7 @@ angular.module('redditApp', [])
 
 function redditCtrl($scope, redditService) {
   $scope.posts = redditService.getPosts();
+  
   $scope.addPost = function(newPost) {
     redditService.addPost(newPost);
     $scope.newPost = '';
@@ -13,6 +14,9 @@ function redditCtrl($scope, redditService) {
   }
   $scope.downvote = function(post) {
     redditService.downvote(post);
+  }
+  $scope.submitPost = function() {
+    $scope.newPost = !$scope.newPost;
   }
 }
 
