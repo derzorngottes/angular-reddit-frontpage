@@ -8,6 +8,12 @@ function redditCtrl($scope, redditService) {
     redditService.addPost(newPost);
     $scope.newPost = '';
   }
+  $scope.upvote = function(post) {
+    redditService.upvote(post);
+  }
+  $scope.downvote = function(post) {
+    redditService.downvote(post);
+  }
 }
 
 function redditService() {
@@ -46,29 +52,16 @@ function redditService() {
     },
     addPost: function() {
       posts.push(newPost)
+    },
+    upvote: function(post) {
+      post.votes += 1;
+    },
+    downvote: function(post) {
+      post.votes -= 1;
     }
   }
 }
 
 // app.service('submitNow', function() {
 //   $scope.vm.newpost = true;
-// });
-/*
-app.service('callUpvote', function() {
-  this.upvote = function(post) {
-    return post.votes += 1;
-  };
-});
-
-app.service('callDownvote', function() {
-  this.downvote = function(post) {
-    return post.votes -= 1;
-  };
-});
-*/
-
-//post service - get posts, make posts
-
-// app.factory('makePost', function() {
-//
 // });
