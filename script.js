@@ -1,8 +1,8 @@
 angular.module('redditApp', [])
-  .controller('redditController', redditController)
-  .factory('redditFactory', redditFactory)
+  .controller('redditCtrl', redditCtrl)
+  .factory('redditService', redditService)
 
-function redditController($scope, redditService) {
+function redditCtrl($scope, redditService) {
   $scope.posts = redditService.getPosts();
   $scope.addPost = function(newPost) {
     redditService.addPost(newPost);
@@ -69,6 +69,6 @@ app.service('callDownvote', function() {
 
 //post service - get posts, make posts
 
-app.factory('makePost', function() {
-
-});
+// app.factory('makePost', function() {
+//
+// });
