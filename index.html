@@ -47,8 +47,8 @@
         <div class='col-md-2 imageDiv'><img ng-src='{{ post.image }}'></div>
         <div class='col-md-10'>
           <p class='titleP'>{{ post.title }} |
-            <span class='glyphicon glyphicon-arrow-up' ng-click='upvote()'></span>
-            <span class='glyphicon glyphicon-arrow-down' ng-click='downvote()'></span>
+            <span class='glyphicon glyphicon-arrow-up' ng-click='callUpvote(post)'></span>
+            <span class='glyphicon glyphicon-arrow-down' ng-click='callDownvote(post)'></span>
             {{ post.votes }}
           </p>
           <p style='text-align:right' class='byliner'>By {{ post.author }}</p>

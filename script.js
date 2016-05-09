@@ -1,6 +1,6 @@
 var app = angular.module('myApp', []);
 
-app.controller('myCtrl', ['$scope', function myCtrl($scope) {
+app.controller('myCtrl', ['$scope', 'callUpvote', 'callDownvote', function myCtrl($scope, callUpvote, callDownvote) {
   $scope.vm = {};
   $scope.vm.newpost = false;
   $scope.vm.posts = [
@@ -32,17 +32,42 @@ app.controller('myCtrl', ['$scope', function myCtrl($scope) {
       votes: 0
     }
   ];
+
+  $scope.callUpvote = function(post) {
+    callUpvote.upvote(post);
+  };
+  $scope.callDownvote = function(post) {
+    callDownvote.downvote(post);
+  };
+
 }]);
 
+app.factory('makePost', makePost)
 
-app.service('submitNow', function() {
-  $scope.vm.newpost = true;
+function makePost() {
+  var allPosts = [
+    { }
+  ];
+}
+
+// app.service('submitNow', function() {
+//   $scope.vm.newpost = true;
+// });
+
+app.service('callUpvote', function() {
+  this.upvote = function(post) {
+    return post.votes += 1;
+  };
 });
 
-app.service('upvote', function(post) {
-  $scope.vm[post].votes += 1;
+app.service('callDownvote', function() {
+  this.downvote = function(post) {
+    return post.votes -= 1;
+  };
 });
 
-app.service('downvote', function(post) {
-  $scope.vm[post].votes -= 1;
-})
+//post service - get posts, make posts
+
+app.factory('makePost', function() {
+
+});
