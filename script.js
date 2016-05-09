@@ -1,9 +1,17 @@
-var app = angular.module('myApp', []);
+angular.module('redditApp', [])
+  .controller('redditController', redditController)
+  .factory('redditFactory', redditFactory)
 
-app.controller('myCtrl', ['$scope', 'callUpvote', 'callDownvote', function myCtrl($scope, callUpvote, callDownvote) {
-  $scope.vm = {};
-  $scope.vm.newpost = false;
-  $scope.vm.posts = [
+function redditController($scope, redditService) {
+  $scope.posts = redditService.getPosts();
+  $scope.addPost = function(newPost) {
+    redditService.addPost(newPost);
+    $scope.newPost = '';
+  }
+}
+
+function redditService() {
+  var posts = [
     {
       image: 'http://lorempixel.com/160/120',
       title: 'Outside Aspen',
@@ -32,28 +40,20 @@ app.controller('myCtrl', ['$scope', 'callUpvote', 'callDownvote', function myCtr
       votes: 0
     }
   ];
-
-  $scope.callUpvote = function(post) {
-    callUpvote.upvote(post);
-  };
-  $scope.callDownvote = function(post) {
-    callDownvote.downvote(post);
-  };
-
-}]);
-
-app.factory('makePost', makePost)
-
-function makePost() {
-  var allPosts = [
-    { }
-  ];
+  return {
+    getPosts: function() {
+      return posts;
+    },
+    addPost: function() {
+      posts.push(newPost)
+    }
+  }
 }
 
 // app.service('submitNow', function() {
 //   $scope.vm.newpost = true;
 // });
-
+/*
 app.service('callUpvote', function() {
   this.upvote = function(post) {
     return post.votes += 1;
@@ -65,6 +65,7 @@ app.service('callDownvote', function() {
     return post.votes -= 1;
   };
 });
+*/
 
 //post service - get posts, make posts
 
