@@ -30,15 +30,17 @@
 
     <div class='row'>
       <div class='col-md-8 col-md-offset-1 newPost' ng-show='newPost'>
-        <p><label for='title'>Title</label><br>
-        <input type='text' placeholder='title' name='title'><br></p>
-        <p><label for='author'>Author</label><br>
-        <input type='text' placeholder='author' name='author'><br></p>
-        <p><label for='imageurl'>Image URL</label><br>
-        <input type='text' placeholder='imageurl' name='imageurl'><br></p>
-        <p><label for='description'>Description</label><br>
-        <input type='textarea' name='description'><br></p>
-        <p><button>Submit Post</button></p>
+        <form novalidate class='simple-form'>
+          <p><label for='title'>Title</label><br>
+          <input type='text' placeholder='title' name='title'><br></p>
+          <p><label for='author'>Author</label><br>
+          <input type='text' placeholder='author' name='author'><br></p>
+          <p><label for='imageurl'>Image URL</label><br>
+          <input type='text' placeholder='imageurl' name='imageurl'><br></p>
+          <p><label for='description'>Description</label><br>
+          <input type='textarea' name='description'><br></p>
+          <p><button>Submit Post</button></p>
+        </form>  
       </div>
     </div>
 
