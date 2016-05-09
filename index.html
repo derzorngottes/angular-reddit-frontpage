@@ -32,15 +32,15 @@
       <div class='col-md-8 col-md-offset-1 newPost' ng-show='newPost'>
         <form novalidate class='simple-form'>
           <p><label for='title'>Title</label><br>
-          <input type='text' placeholder='title' name='title'><br></p>
+          <input type='text' placeholder='title' ng-model='newAddPost.title'><br></p>
           <p><label for='author'>Author</label><br>
-          <input type='text' placeholder='author' name='author'><br></p>
+          <input type='text' placeholder='author' ng-model='newAddPost.author'><br></p>
           <p><label for='imageurl'>Image URL</label><br>
-          <input type='text' placeholder='imageurl' name='imageurl'><br></p>
+          <input type='text' placeholder='image URL' ng-model='newAddPost.image'><br></p>
           <p><label for='description'>Description</label><br>
-          <input type='textarea' name='description'><br></p>
-          <p><button>Submit Post</button></p>
-        </form>  
+          <input type='textarea' ng-model='newAddPost.text'><br></p>
+          <p><button ng-click='addPost(newAddPost)'>Submit Post</button></p>
+        </form>
       </div>
     </div>
 
