@@ -20,9 +20,9 @@
         <li class='dropdown'>
           <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Sort By <span></span><span class='glyphicon glyphicon-menu-down'></span></a>
           <ul class='dropdown-menu'>
-            <li><a href='#'>Votes</a></li>
-            <li><a href='#'>Date</a></li>
-            <li><a href='#'>Title</a></li>
+            <li><a href='#' ng-click='setSortBy("-votes")'>Votes</a></li>
+            <li><a href='#' ng-click='setSortBy("-postDate")'>Date</a></li>
+            <li><a href='#' ng-click='setSortBy("title")'>Title</a></li>
           </ul>
         </li>
       </ul>

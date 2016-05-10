@@ -11,6 +11,8 @@ function redditCtrl($scope, redditService) {
     var formatDate = moment(date).startOf().fromNow();
     newPost.posted = formatDate.charAt(0).toUpperCase() + formatDate.slice(1);
     newPost.comments = [];
+    newPost.votes = 0;
+    newPost.postDate = Date.parse(date);
     redditService.addPost(newPost);
     $scope.newPost = '';
   }
@@ -22,6 +24,9 @@ function redditCtrl($scope, redditService) {
   }
   $scope.submitPost = function() {
     $scope.newPost = !$scope.newPost;
+  }
+  $scope.setSortBy = function(sortMethod) {
+    $scope.sortMethod = sortMethod;
   }
 }
 
@@ -50,7 +55,8 @@ function redditService() {
       title: 'Outside Aspen',
       author: 'ben111',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate',
-      posted: moment([2016, 3, 18]).fromNow(),
+      posted: moment('2016-3-18').fromNow(),
+      postDate: Date.parse('2016-3-18'),
       comments: [],
       votes: 0
     },
@@ -59,12 +65,13 @@ function redditService() {
       title: 'Nothing Good',
       author: 'ben121',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate',
-      posted: moment([2016, 4, 3]).fromNow(),
+      posted: moment('2016-3-4').fromNow(),
+      postDate: Date.parse('2016-3-4'),
       comments: [
         {
           comAuthor: 'fat tony',
           comText: 'reddit sucks',
-          comDate: moment([2016, 4, 3]).fromNow()
+          comDate: moment('2016-3-4').fromNow()
         }
       ],
       votes: 0
@@ -74,7 +81,8 @@ function redditService() {
       title: 'Rainbows',
       author: 'ben131',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate',
-      posted: moment([2016, 4, 1]).fromNow(),
+      posted: moment('2016-4-1').fromNow(),
+      postDate: Date.parse('2016-4-1'),
       comments: [],
       votes: 0
     }
