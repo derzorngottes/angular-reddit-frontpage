@@ -32,13 +32,13 @@
       <div class='col-md-8 col-md-offset-1 newPost' ng-show='newPost'>
         <form novalidate class='simple-form'>
           <p><label for='title'>Title</label><br>
-          <input type='text' placeholder='title' ng-model='newAddPost.title'><br></p>
+          <input type='text' name='title' placeholder='title' ng-model='newAddPost.title'><br></p>
           <p><label for='author'>Author</label><br>
-          <input type='text' placeholder='author' ng-model='newAddPost.author'><br></p>
+          <input type='text' name='author' placeholder='author' ng-model='newAddPost.author'><br></p>
           <p><label for='imageurl'>Image URL</label><br>
-          <input type='text' placeholder='image URL' ng-model='newAddPost.image'><br></p>
+          <input type='text' name='imageurl' placeholder='image URL' ng-model='newAddPost.image'><br></p>
           <p><label for='description'>Description</label><br>
-          <input type='textarea' ng-model='newAddPost.text'><br></p>
+          <input type='textarea' name='description' ng-model='newAddPost.text'><br></p>
           <p><button ng-click='addPost(newAddPost)'>Submit Post</button></p>
         </form>
       </div>
@@ -58,7 +58,7 @@
           <p>
             <span class='glyphicon glyphicon-calendar'></span> {{ post.posted }}
             | <span ng-click='showComments()'><span class='glyphicon glyphicon-comment'></span> {{ post.comments.length }} comments</span>
-            | <span class='glyphicon glyphicon-pencil'></span> Add comment
+            | <span ng-click='showCommentForm()'><span class='glyphicon glyphicon-pencil'></span> Add comment </span>
           </p>
           <p class='commentbox' ng-show='showComment'>
             <span ng-repeat='comment in post.comments'>
@@ -68,6 +68,15 @@
               <br>
               <i>{{ comment.comDate }}</i>
             </span>
+          </p>
+          <p class='addCommentBox'>
+            <form novalidate class='simple-form' ng-show='commentForm'>
+              <p><label for='comauthor'>Author</label><br>
+              <input type='text' name='comauthor' ng-model='newComment.author'><br></p>
+              <p><label for='commentText'>Comment</label><br>
+              <input type='textarea' name='commentText' ng-model='newComment.text'><br></p>
+              <p><button ng-click='addComment(post, comment)'>Submit Post</button></p>
+            </form>
           </p>
         </div>
       </div>

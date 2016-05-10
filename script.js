@@ -31,7 +31,9 @@ function commentCtrl($scope, redditService) {
   $scope.showComments = function() {
     $scope.showComment = !$scope.showComment;
   }
-
+  $scope.showCommentForm = function() {
+    $scope.commentForm = !$scope.commentForm;
+  }
   $scope.addComment = function(post, comment) {
     redditService.addComment(post, comment);
   }
