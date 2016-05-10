@@ -72,10 +72,10 @@
           <p class='addCommentBox'>
             <form novalidate class='simple-form' ng-show='commentForm'>
               <p><label for='comauthor'>Author</label><br>
-              <input type='text' name='comauthor' ng-model='newComment.author'><br></p>
+              <input type='text' name='comauthor' ng-model='newComment.comAuthor'><br></p>
               <p><label for='commentText'>Comment</label><br>
-              <input type='textarea' name='commentText' ng-model='newComment.text'><br></p>
-              <p><button ng-click='addComment(post, comment)'>Submit Post</button></p>
+              <input type='textarea' name='commentText' ng-model='newComment.comText'><br></p>
+              <p><button ng-click='addComment(post, newComment)'>Submit Post</button></p>
             </form>
           </p>
         </div>

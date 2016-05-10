@@ -35,7 +35,11 @@ function commentCtrl($scope, redditService) {
     $scope.commentForm = !$scope.commentForm;
   }
   $scope.addComment = function(post, comment) {
+    var date = new Date();
+    var formatDate = moment(date).startOf().fromNow();
+    comment.comDate = formatDate.charAt(0).toUpperCase() + formatDate.slice(1);
     redditService.addComment(post, comment);
+    $scope.commentForm = false;
   }
 }
 
