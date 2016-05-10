@@ -23,7 +23,7 @@ app.controller('redditCtrl', function($scope, redditService) {
   $scope.setSortBy = function(sortMethod) {
     $scope.sortMethod = sortMethod;
   }
-}
+});
 
 app.controller('commentCtrl', function($scope, redditService) {
   $scope.posts = redditService.getPosts();
@@ -41,4 +41,4 @@ app.controller('commentCtrl', function($scope, redditService) {
     redditService.addComment(post, comment);
     $scope.commentForm = false;
   }
-}
+});

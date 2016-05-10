@@ -1,3 +1,9 @@
+/*
+
+Removed from project // single-file solution
+
+*/
+
 angular.module('redditApp', [])
   .controller('redditCtrl', redditCtrl)
   .controller('commentCtrl', commentCtrl)
